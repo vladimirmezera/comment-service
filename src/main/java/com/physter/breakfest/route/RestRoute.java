@@ -21,6 +21,10 @@ public class RestRoute extends RouteBuilder {
                 .apiProperty("api.version", "1.0")
                 .apiProperty("cors", "true")
                 .apiContextRouteId("doc-api")
+                .enableCORS(true) // <-- Important
+                .corsAllowCredentials(true) // <-- Important
+                .corsHeaderProperty("Access-Control-Allow-Origin","*")
+                .corsHeaderProperty("Access-Control-Allow-Headers","Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization")
                 .bindingMode(RestBindingMode.json);
 
         rest("").description("Get comments")
