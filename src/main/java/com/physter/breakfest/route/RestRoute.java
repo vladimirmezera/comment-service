@@ -25,7 +25,7 @@ public class RestRoute extends RouteBuilder {
                 .corsHeaderProperty("Access-Control-Request-Method", "GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, PATCH")
 
                 .corsHeaderProperty("Access-Control-Allow-Origin","*")
-                .corsHeaderProperty("Access-Control-Allow-Headers","Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization")
+                .corsHeaderProperty("Access-Control-Allow-Headers","Origin, Accept, Access-Control-Allow-Origin,X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization")
                 .bindingMode(RestBindingMode.json);
 
         rest("").description("Get comments")
