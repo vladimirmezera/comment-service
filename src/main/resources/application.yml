@@ -3,3 +3,14 @@ server:
 management:
   security:
     enabled : false
+
+
+spring:
+  datasource:
+    url: jdbc:postgresql://worker1.ocptest.physter.lan:32000/sampledb
+    username: user81K
+    password: pptkPWT7V88OyVgC
+  jpa:
+    hibernate:
+      ddl-auto: create
+
