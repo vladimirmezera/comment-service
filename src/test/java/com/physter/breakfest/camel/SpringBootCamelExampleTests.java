@@ -1,6 +1,6 @@
 package com.physter.breakfest.camel;
 
-import com.physter.breakfest.dto.CommentDto;
+import com.physter.breakfest.model.Comment;
 import com.physter.breakfest.service.CommentService;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
@@ -37,8 +37,7 @@ public class SpringBootCamelExampleTests {
 		Exchange exchange = producerGetInfo.send(new DefaultExchange(camelContext));
 		Assert.assertEquals(0, exchange.getIn().getBody(List.class).size());
 
-		CommentDto commentDto = new CommentDto();
-		commentDto.setId(1);
+		Comment commentDto = new Comment();
 		commentDto.setName("Test User");
 		commentDto.setComment("Comment");
 		commentService.saveDto(commentDto);
@@ -50,7 +49,7 @@ public class SpringBootCamelExampleTests {
 		saveComment.send(saveCommentExchange);
 		//GET data
 		exchange = producerGetInfo.send(new DefaultExchange(camelContext));
-		Assert.assertEquals(2, exchange.getIn().getBody(List.class).size());
+		Assert.assertEquals(1, exchange.getIn().getBody(List.class).size());
 
 
 	}
